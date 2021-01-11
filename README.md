@@ -49,6 +49,17 @@ fdisk -l #分区工具查看分区信息
 #末尾添加一行UUID=f5c5c392-4704-4475-9abc-f6a2e049f2ea /XC ext4 defaults 0 2
 #UUID=xxxx /xxxx xxxx defaults 0 2,三个xxxx根据实际情况更改--uuid,挂载点，磁盘格式
 ```
+* 看不全命令行的输出内容
+```
+shift+pageUp/pageDown进行上下屏滚动
+命令后接管道符  | more 
+```
+* 查看历史命令
+```
+$ history 
+$ history 10
+$ !3 //执行序号为3的命令
+```
 * docker
 ```
 #查看你当前的内核版本
@@ -56,6 +67,9 @@ uname -r
 
 #安装 Docker
 yum -y install docker
+
+#验证
+docker version
 
 #启动 Docker 后台服务
 service docker start
