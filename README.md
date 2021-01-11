@@ -66,7 +66,13 @@ $ !3 //执行序号为3的命令
 uname -r
 
 #安装 Docker
-yum -y install docker
+yum -y install yum-utils device-mapper-persistent-data lvm2
+yum makecache fast //更新缓存
+yum install docker-ce docker-ce-cli containerd.io
+//有个register的报错不用管，有个errno14的错误是缺少一个文件执行以下命令安装
+rpm --import http://mirrors.1163.com/centos/RPM-GPG-KEY-CentOS-7
+//然后再次安装
+yun -y install docker-ce
 
 #验证
 docker version
