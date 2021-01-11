@@ -14,6 +14,7 @@
   DNS1=114.114.114.114      #配置国内的一个域名解析器
   ESC退出编辑，:wq保存退出，要带冒号
 3.systemctl restart network  //重启网络服务，如果失败了，就直接reboot
+(补充 service network restart 重启网络)
 4.ping 14.215.177.39         //测试网络,内网IP和外网IP都测试一下，ping域名可能会失败
 ```
 * 修改root密码
@@ -47,4 +48,18 @@ fdisk -l #分区工具查看分区信息
 7.vi /etc/fstab          #更改配置，使其开机自动挂载
 #末尾添加一行UUID=f5c5c392-4704-4475-9abc-f6a2e049f2ea /XC ext4 defaults 0 2
 #UUID=xxxx /xxxx xxxx defaults 0 2,三个xxxx根据实际情况更改--uuid,挂载点，磁盘格式
+```
+* docker
+```
+#查看你当前的内核版本
+uname -r
+
+#安装 Docker
+yum -y install docker
+
+#启动 Docker 后台服务
+service docker start
+
+#测试运行 hello-world,由于本地没有hello-world这个镜像，所以会下载一个hello-world的镜像，并在容器内运行。
+docker run hello-world
 ```
